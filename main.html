@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-firestore.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/css.css">
+
+    <title>TODO List</title>
+</head>
+
+<body>
+
+
+
+
+    <div class="main-body">
+
+        <div class="task task-header perspective">
+
+            <span class="text">to-do list</span>
+            <div class="add-task-btn"><span class="text">x</span></div>
+        </div>
+        <div class="task input"><span class="text">
+
+                <input type="text" name="taskName" value="ADD NEW TASK" onClick="this.select();" style="text-transform:uppercase">
+            </span></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDxsQ-FXKvCiRhJ9JJg0cpEbBb8uihJVEc",
+    authDomain: "todolist-ce9af.firebaseapp.com",
+    databaseURL: "https://todolist-ce9af.firebaseio.com",
+    projectId: "todolist-ce9af",
+    storageBucket: "todolist-ce9af.appspot.com",
+    messagingSenderId: "382837505090"
+  };
+  firebase.initializeApp(config);
+    // Getting a reference to DB 
+    const db = firebase.firestore();
+  //  db.settings({ timestampsInSnapshots: true});
+</script>
+
+
+ 
+    <script type="text/javascript" src="js/js.js"></script>
+
+</body>
+
+</html>
