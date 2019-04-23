@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,700,900|Roboto+Condensed:300,400,700|Roboto:300,400" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-firestore.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/css.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <title>TODO List</title>
 </head>
@@ -18,24 +18,23 @@
 
 
 
-    <div class="main-body">
+    <div class="main-frame">
 
-        <div class="task task-header perspective">
+        <div class="main-header">
+            <div class="main-header__letter"></div>
+            <div class="main-header__letter">t</div>
+            <div class="main-header__letter">o</div>
+            <div class="main-header__letter">d</div>
+            <div class="main-header__letter main-header--add-task-btn">o<span class="text"></span></div>
+            <div class="main-header__letter"></div>
 
-            <span class="text">to-do list</span>
-            <div class="add-task-btn"><span class="text">x</span></div>
         </div>
+        <hr class="main-hr">
         <div class="task input"><span class="text">
 
                 <input type="text" name="taskName" value="ADD NEW TASK" onClick="this.select();" style="text-transform:uppercase">
             </span></div>
     </div>
-
-
-
-
-
-
 
 
 

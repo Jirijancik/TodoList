@@ -14,13 +14,13 @@ db.collection('task').get().then((snapshot) => {
         /*Constants and Variables*/
 
 // Query selector for addBtn
-const addButton = document.querySelector(".add-task-btn");
+const addButton = document.querySelector(".main-header--add-task-btn");
 //const deleteBtnContent = "O";
 // Query selector for mainBody
-let mainBody = document.querySelector(".main-body");
+let mainBody = document.querySelector(".main-frame");
 
 // Query selector for all Delete btns of each task
-let deleteBtns = document.querySelectorAll(".delete-task");
+let deleteBtns = document.querySelectorAll(".task__delete-task");
 
 
 
@@ -31,7 +31,7 @@ let deleteBtns = document.querySelectorAll(".delete-task");
 // function for refreshing the delete btns array 
 const MyRefresh = () => {
 
-    deleteBtns = document.querySelectorAll(".delete-task");
+    deleteBtns = document.querySelectorAll(".task__delete-task");
 }
 
 
@@ -76,7 +76,7 @@ function addElement(inputValue, taskIdDB) {
 
     // Create newDeletebtn with its class and text content
     let newDeleteBtn = document.createElement("div");
-    let newDeleteBtnClass = "delete-task far fa-trash-alt";
+    let newDeleteBtnClass = "task__delete-task far fa-trash-alt";
    // let newDeleteBtnContent = document.createTextNode(deleteBtnContent);
 
     // Create text node for newTask and its class
