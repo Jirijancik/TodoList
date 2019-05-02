@@ -74,6 +74,9 @@ function addElement(inputValue, taskIdDB) {
     // Create the body of new task
     let newTask = document.createElement("div");
 
+    // Create span for wrapping text 
+    let newTextSpan = document.createElement("span");
+
     // Create newDeletebtn with its class and text content
     let newDeleteBtn = document.createElement("div");
     let newDeleteBtnClass = "task__delete-task far fa-trash-alt";
@@ -82,6 +85,7 @@ function addElement(inputValue, taskIdDB) {
     // Create text node for newTask and its class
     let newContent = document.createTextNode(inputValue);
     let newTaskClass = "task";
+    let newTextSpanClass = "task__text-span";
     let newTaskId = taskIdDB;
     let lastTask = document.querySelector(".task:last-of-type");
 
@@ -89,10 +93,12 @@ function addElement(inputValue, taskIdDB) {
     mainBody.insertBefore(newTask, mainBody.lastTask);
     newTask.setAttribute("class", newTaskClass);
     newTask.setAttribute("data-id", newTaskId);
-    newTask.appendChild(newContent);
+    newTextSpan.setAttribute("class", newTextSpanClass);
+    newTextSpan.appendChild(newContent);
+    newTask.appendChild(newTextSpan);
 
     // Add the newly created deleteBtn to the newTask
-    newTask.insertBefore(newDeleteBtn, newContent)
+    newTask.insertBefore(newDeleteBtn, newTextSpan)
     newDeleteBtn.setAttribute("class", newDeleteBtnClass);
    // newDeleteBtn.appendChild(newDeleteBtnContent);
     newDeleteBtn.addEventListener("click", function removeTask() {
@@ -124,6 +130,10 @@ function renderTasksFromDB(doc) {
 //Eventlistener to add a new task
 addButton.addEventListener("click", addNewTask);
 
+//Eventlistener to change value on hoover
+// -from O to +
+addButton.addEventListener("mouseover", function(e) {e.target.innerText = '+'});
+addButton.addEventListener("mouseleave", function(e) {e.target.innerText = 'O'});
 
 
 // code for looping trough delete btns array and deleting specific task
