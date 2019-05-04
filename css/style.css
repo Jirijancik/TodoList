@@ -68,20 +68,22 @@ HEADER
 .main-header--add-task-btn {
   border: 1px solid #241F1F;
   background: #FFFFFF;
+  -webkit-transition: background-color 200ms ease-in;
+  transition: background-color 200ms ease-in;
   margin: 10px 25px 0px 25px;
   -webkit-box-shadow: 0px 0px 2px 0px rgba(36, 31, 31, 0.44);
           box-shadow: 0px 0px 2px 0px rgba(36, 31, 31, 0.44);
 }
 
-.main-header--add-task-btn:hover {
-  background-color: #241F1F;
-  -webkit-transition: background-color 300ms ease-out;
-  transition: background-color 300ms ease-out;
-  color: #FFFFFF;
-}
-
 .main-header--add-task-btn:focus {
   outline: none;
+}
+
+.main-header__add-task-btn__active {
+  background-color: #241F1F !important;
+  -webkit-transition: background-color 300ms ease-out !important;
+  transition: background-color 300ms ease-out !important;
+  color: #FFFFFF !important;
 }
 
 /********************************************************
@@ -101,11 +103,15 @@ HR
 /********************************************************
 INPUT
 ********************************************************/
-input {
+.xxx {
+  height: 80px !important;
+}
+
+.input {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 20px;
   width: 300px;
-  height: 50px;
+  height: 80px;
   color: #FFFFFF;
   text-align: center;
   background-color: #241F1F;

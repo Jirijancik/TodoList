@@ -74,19 +74,22 @@ justify-content: center !important;
     &--add-task-btn{
         border: 1px solid $primaryDarkCollor;
         background: $mainFrameCollor;
+        transition: background-color 200ms ease-in;
         margin: 10px 25px 0px 25px;
         box-shadow: 0px 0px 2px 0px $shadowDarkCollor;
-    }
-    &--add-task-btn:hover{
-        background-color: $primaryDarkCollor;
-        transition: background-color 300ms ease-out;
-        color: $mainFrameCollor;
     }
     &--add-task-btn:focus{
         outline: none;
     }
 
 }
+
+.main-header__add-task-btn__active{
+    background-color: $primaryDarkCollor !important;
+    transition: background-color 300ms ease-out !important;
+    color: $mainFrameCollor !important;
+}
+
 
 
 
@@ -109,12 +112,15 @@ HR
 /********************************************************
 INPUT
 ********************************************************/
-
-input{
+.xxx{
+    height: 80px !important;
+}
+.input{
+    
     font-family: $taskFontStyle;
     font-size: $taskFontSize;
     width: 300px;
-    height: 50px;
+    height: 80px;
     color: $mainFrameCollor;
     text-align: center;
     background-color: $primaryDarkCollor;
@@ -126,6 +132,7 @@ input{
     animation: input 3.5s ease-out;
     animation-iteration-count: infinite; 
 }
+
 @keyframes input {
     0% { 
         color: rgba(255, 255, 255, 0.5);

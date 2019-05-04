@@ -15,9 +15,12 @@ db.collection('task').get().then((snapshot) => {
 
 // Query selector for addBtn
 const addButton = document.querySelector(".main-header--add-task-btn");
-//const deleteBtnContent = "O";
+
 // Query selector for mainBody
 let mainBody = document.querySelector(".main-frame");
+
+// Query selector for input
+let input = document.querySelector(".input");
 
 // Query selector for all Delete btns of each task
 let deleteBtns = document.querySelectorAll(".task__delete-task");
@@ -34,6 +37,8 @@ const MyRefresh = () => {
     deleteBtns = document.querySelectorAll(".task__delete-task");
 }
 
+   
+
 
 //function for Deleting tasks
 const RemoveTask = () => {
@@ -44,13 +49,18 @@ const RemoveTask = () => {
 //Function for adding new tasks with imput text
 const addNewTask = () => {
     // Get value from text input.
-
-    let inputValue = document.querySelector("input").value.toUpperCase() || alert("<INSERT SOME TASK PLEASE>");
+    if (addButton.classList.contains("main-header__add-task-btn__active") || input.value != "ADD NEW TASK") {
+        
+    
+    let inputValue = input.value.toUpperCase() || alert("<INSERT SOME TASK PLEASE>");
   
     let taskIdDB = db.collection('task').doc().name;
     addTaskToDB(inputValue);
     
     addElement(inputValue, taskIdDB);
+
+    input.value = "ADD NEW TASK";
+}
 }
 
 
@@ -80,7 +90,7 @@ function addElement(inputValue, taskIdDB) {
     // Create newDeletebtn with its class and text content
     let newDeleteBtn = document.createElement("div");
     let newDeleteBtnClass = "task__delete-task far fa-trash-alt";
-   // let newDeleteBtnContent = document.createTextNode(deleteBtnContent);
+
 
     // Create text node for newTask and its class
     let newContent = document.createTextNode(inputValue);
@@ -107,6 +117,7 @@ function addElement(inputValue, taskIdDB) {
     });
 
     // Function to refresh deleteBtns array
+    
     MyRefresh();
 }
 
@@ -127,13 +138,34 @@ function renderTasksFromDB(doc) {
 }
 
 
+
+ 
+// function for restoring the "ADD NEW TASK" to input after it looses focus
+input.addEventListener("focusout", function(e) {
+    if (input.value=='') {
+        e.target.value = 'ADD NEW TASK';   
+        addButton.classList.remove("main-header__add-task-btn__active")
+        addButton.innerText = 'O'
+    } 
+});
+
+//function for deleting current text in input after first click    
+input.addEventListener("click", function(e) {
+    if(input.value==="ADD NEW TASK"){
+        e.target.value = ''
+        addButton.classList.add("main-header__add-task-btn__active")
+        addButton.innerText = '+'
+    }
+});
+
+
 //Eventlistener to add a new task
 addButton.addEventListener("click", addNewTask);
 
 //Eventlistener to change value on hoover
 // -from O to +
-addButton.addEventListener("mouseover", function(e) {e.target.innerText = '+'});
-addButton.addEventListener("mouseleave", function(e) {e.target.innerText = 'O'});
+//addButton.addEventListener("mouseover", function(e) {e.target.innerText = '+'});
+//addButton.addEventListener("mouseleave", function(e) {e.target.innerText = 'O'});
 
 
 // code for looping trough delete btns array and deleting specific task
