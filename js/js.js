@@ -3,8 +3,9 @@ import { addTask } from "./TaskCreation";
 
 
 
-        /*Grabbing data from DB*/ 
-// get is asynchronous, it takes some time to get the data
+/****************************************************************
+Getting data from Firebase API
+****************************************************************/
 const dbCollection = db.collection('task').get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
         _db.renderTasksFromDB(doc);
@@ -33,9 +34,11 @@ let deleteBtns = document.querySelectorAll(".task__delete-task");
 
 
 
+/****************************************************************
+Main Functions
+****************************************************************/
 
-
-//Function for adding new tasks with imput text
+// Function for adding new tasks with imput text
 const addNewTask = () => {
     if (addButton.classList.contains("main-header__add-task-btn__active") || input.value !=="ADD NEW TASK") { //TODO: Fix bug TC: 1. Add a valid task 2.Press addButton again -> new ADD NEW TASK task will be added 
     
@@ -44,6 +47,7 @@ const addNewTask = () => {
 
         addTask(inputValue, taskIdDB);
         insertValueIntoElement("ADD NEW TASK", input);
+        myRefresh();
 
         //Function for getting an value from input
         function getInputValue(input) {
@@ -58,6 +62,13 @@ const addNewTask = () => {
 }
 
 
+// Function for refreshing the delete btns array 
+const myRefresh = (deleteBtns) => {
+    deleteBtns = document.querySelectorAll(".task__delete-task");
+}
+
+
+
 
 
 
@@ -68,8 +79,15 @@ Main Body
 
 //Eventlistener for ADD BUTTON to add a new task
 addButton.addEventListener("click", addNewTask);
+
+//Eventlistener for INPUT to add a new task on Enter Keypress
+input.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        addNewTask();
+    }
+});
  
-// function for restoring the "ADD NEW TASK" to INPUT after it looses focus                     //TODO: Find better way for INPUT/ ADD BUTTON logic
+// Function for restoring the "ADD NEW TASK" to INPUT after it looses focus                     //TODO: Find better way for INPUT/ ADD BUTTON logic
 input.addEventListener("focusout", function(e) {
     if (input.value=='') {
         e.target.value = 'ADD NEW TASK';   
@@ -78,7 +96,7 @@ input.addEventListener("focusout", function(e) {
     } 
 });
 
-//function for deleting current text in INPUT after first click    
+// Function for deleting current text in INPUT after first click    
 input.addEventListener("click", function(e) {
     if(input.value==="ADD NEW TASK"){
         e.target.value = ''
@@ -88,7 +106,7 @@ input.addEventListener("click", function(e) {
 });
 
 
-// code for looping trough delete btns array and deleting specific task
+// Code for looping trough all DELETE BUTTONS array and deleting specific task
 for (deleteBtn of deleteBtns) {
     deleteBtn.addEventListener("click",function removeTask() {
       _db.deleteTaskFromDB(deleteBtn);

@@ -1,23 +1,19 @@
 import * as _db from './DatabaseJS.js';
 
-//function for tasks creation
+// Function for tasks creation
 export function addTask(inputValue, taskIdDB) {
 
-    // Create the body of new task
-
+    // Variables and constants 
     const newTaskId = taskIdDB;
     const newTaskClass = "task";
     const newTextSpanClass = "task__text-span";
     const newDeleteBtnClass = "task__delete-task far fa-trash-alt";
     const newContent = document.createTextNode(inputValue);
 
+    // Creation of default Task
     const { newTask, newTextSpan, newDeleteBtn } = createDefaultTask(newTaskId,newTaskClass,newTextSpanClass,newDeleteBtnClass);
 
-    // Create text node for newTask and its class
-    
-
-
-    
+    // Adding EventListener for the DELETE BTN 
     const addDeleteTaskFeature = (newDeleteBtn) => {
         newDeleteBtn.addEventListener("click", function removeTask() {
             _db.deleteTaskFromDB(newDeleteBtn);
@@ -25,11 +21,11 @@ export function addTask(inputValue, taskIdDB) {
         });
     }
 
-    
+
     addDeleteTaskFeature(newDeleteBtn);
     appendTaskElements(mainBody,newTask,newTextSpan,newContent,newDeleteBtn);
-    myRefresh();
 
+    // Appending elements from Default Task together
     function appendTaskElements(mainBody,newTask,newTextSpan,newContent,newDeleteBtn){
         newTextSpan.appendChild(newContent);
         newTask.appendChild(newTextSpan);
@@ -37,26 +33,29 @@ export function addTask(inputValue, taskIdDB) {
         mainBody.insertBefore(newTask, mainBody.lastTask);
     }
 
+    // Adding Classes to Task Element
     function createNewTask(newTaskElement, newTaskClass, newTaskId){
         newTaskElement.setAttribute("class", newTaskClass);
         newTaskElement.setAttribute("data-id", newTaskId);
+
         return newTaskElement;
     };
 
+    // Adding Classes to Span Element
     function createNewTextSpan(newTextSpanElement, newTextSpanClass){
-
         newTextSpanElement.setAttribute("class", newTextSpanClass);
 
         return newTextSpanElement;
     } 
 
+    // Adding Classes to Delete Button Element
     function createNewDeleteBtn(newDeleteBtnElement, newDeleteBtnClass){
-
         newDeleteBtnElement.setAttribute("class", newDeleteBtnClass);
+
         return newDeleteBtnElement
     } 
 
-
+    // Creation of all Task Elements
     function createTaskElements() {
         const newTaskElement = document.createElement("div");
         const newTextSpanElement = document.createElement("span");
@@ -65,7 +64,8 @@ export function addTask(inputValue, taskIdDB) {
         return { newTaskElement, newTextSpanElement, newDeleteBtnElement };
     }
 
-    //function for creating default task
+
+    // Function for creating default task
     function createDefaultTask(newTaskId, newTaskClass, newTextSpanClass, newDeleteBtnClass) {
 
         const { newTaskElement, newTextSpanElement, newDeleteBtnElement } = createTaskElements();
@@ -76,11 +76,5 @@ export function addTask(inputValue, taskIdDB) {
 
         return { newTask, newTextSpan, newDeleteBtn };
     }
-
-    // function for refreshing the delete btns array 
-    const myRefresh = () => {
-        deleteBtns = document.querySelectorAll(".task__delete-task");
-    }
-
 }
 

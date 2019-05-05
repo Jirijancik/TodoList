@@ -107,11 +107,11 @@ HR
 /********************************************************
 INPUT
 ********************************************************/
-.xxx {
+.input {
   height: 80px !important;
 }
 
-.input {
+.input__cell {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 20px;
   width: 300px;
