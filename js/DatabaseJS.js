@@ -1,4 +1,4 @@
-import { addTask } from "TaskCreation.js";
+import { addTask } from "./TaskCreation.js";
 
 
 // Function for adding tasks to FirebaseDB
