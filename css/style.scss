@@ -88,8 +88,9 @@ justify-content: center !important;
     background-color: $primaryDarkCollor !important;
     transition: background-color 300ms ease-out !important;
     color: $mainFrameCollor !important;
+    animation: input 3.5s ease-out;
+    animation-iteration-count: infinite; 
 }
-
 
 
 

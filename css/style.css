@@ -84,6 +84,10 @@ HEADER
   -webkit-transition: background-color 300ms ease-out !important;
   transition: background-color 300ms ease-out !important;
   color: #FFFFFF !important;
+  -webkit-animation: input 3.5s ease-out;
+          animation: input 3.5s ease-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 /********************************************************
