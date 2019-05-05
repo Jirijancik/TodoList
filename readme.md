@@ -6,12 +6,12 @@ Hotová Funkcionalita:
 Propojení s NoSQL Firebase Serverem
 CRD Funkcionalita
 Základní Vzhled
-
-Plánované změny:
 1. Refaktoring do Funkcionálního JS
 2. CSS Design Refaktoring
 3. CSS BEM Refaktoring
 4. CSS Sass Refaktoring
+
+Plánované změny:
 5. Přidání Update funkcionality
 6. Přidání Možnosti Filtrování
 7. Přidání Možnosti Priorit Jednotlivých Tásků
