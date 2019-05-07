@@ -1,7 +1,7 @@
 import * as _db from './DatabaseJS.js';
 
 // Function for tasks creation
-export function addTask(inputValue, taskIdDB) {
+export function addTask(inputValue, taskIdDB, mainBody) {
 
     // Variables and constants 
     const newTaskId = taskIdDB;

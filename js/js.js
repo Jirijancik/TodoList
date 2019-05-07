@@ -1,5 +1,5 @@
 import * as _db from './DatabaseJS.js';
-import { addTask } from "./TaskCreation";
+import { addTask } from './TaskCreation.js';
 
 
 
@@ -45,7 +45,7 @@ const addNewTask = () => {
         let inputValue = getInputValue(input);
         let taskIdDB = _db.addTaskToDBAndReturnID(inputValue);
 
-        addTask(inputValue, taskIdDB);
+        addTask(inputValue, taskIdDB, mainBody);
         insertValueIntoElement("ADD NEW TASK", input);
         myRefresh();
 

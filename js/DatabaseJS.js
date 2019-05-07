@@ -1,4 +1,4 @@
-import { addTask } from "TaskCreation.js";
+import { addTask } from './TaskCreation.js';
 
 
 // Function for adding tasks to FirebaseDB
@@ -13,7 +13,7 @@ export function addTaskToDBAndReturnID(taskName) {
 
 // Function to render all tasks from FirebaseDB
 export function renderTasksFromDB(doc) {
-    addTask(doc.data().Name, doc.id);
+    addTask(doc.data().Name, doc.id, document.querySelector(".main-frame"));
 }
 
 // Function for deleting tasks to FirebaseDB by its 'data-id'
