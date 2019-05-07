@@ -25,7 +25,7 @@ const addButton = document.querySelector(".main-header--add-task-btn");
 const mainBody = document.querySelector(".main-frame");
 
 // Query selector for input
-const input = document.querySelector(".input");
+const input = document.querySelector(".input__cell");
 
 // Query selector for all Delete btns of each task
 let deleteBtns = document.querySelectorAll(".task__delete-task");
